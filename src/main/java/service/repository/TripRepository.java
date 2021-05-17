@@ -18,8 +18,6 @@ public class TripRepository {
         this.jdbcRepository = new JDBCRepository();
     }
 
-    // // trip (id, location, destination, date_time, price, number_people, user_id)
-
     /***
      *
      * @param id
