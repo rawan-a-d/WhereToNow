@@ -26,16 +26,16 @@ public class TripRepository {
      */
     public Trip getTrip(int id) throws WhereToNowDatabaseException {
         String sql = "SELECT t.id, t.location, t.destination, t.date, t.price, t.number_people, " +
-                "u.id AS user_id, u.name AS user_name, u.image AS user_image " +
+                    "u.id AS user_id, u.name AS user_name, u.image AS user_image " +
                     "FROM trip AS t " +
                     "INNER JOIN user AS u ON u.id = t.user_id " +
                     "WHERE t.id = ?";
 
-        Trip trip = null;
+        Trip trip;
         try(Connection connection = jdbcRepository.getDatabaseConnection();
             PreparedStatement statement = connection.prepareStatement(sql)) {
-
             statement.setInt(1, id);
+
             ResultSet resultSet = statement.executeQuery();
 
             if(!resultSet.next()) {
@@ -45,7 +45,7 @@ public class TripRepository {
                 int tripId = resultSet.getInt("id");
                 String location = resultSet.getString("location");
                 String destination = resultSet.getString("destination");
-                LocalDateTime dateTime = resultSet.getTimestamp(3).toLocalDateTime();
+                LocalDateTime dateTime = resultSet.getTimestamp(4).toLocalDateTime();
                 Double price = resultSet.getDouble("price");
                 int numberPeople = resultSet.getInt("number_people");
                 int userId = resultSet.getInt("user_id");
@@ -55,10 +55,9 @@ public class TripRepository {
                 User user = new User(userId, userName, userImage);
                 trip = new Trip(tripId, location, destination, dateTime, price, numberPeople, user);
 
-                connection.commit();
+                return trip;
             }
 
-            return trip;
         }
         catch (SQLException throwable) {
             throw new WhereToNowDatabaseException("Cannot read trip from the database", throwable);
@@ -83,16 +82,16 @@ public class TripRepository {
 
         try(Connection connection = jdbcRepository.getDatabaseConnection();
         PreparedStatement statement = connection.prepareStatement(sql)) {
-            ResultSet resultSet = statement.executeQuery();
-
             statement.setString(1, from);
-            statement.setString(1, to);
+            statement.setString(2, to);
+
+            ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
                 int tripId = resultSet.getInt("id");
                 String location = resultSet.getString("location");
                 String destination = resultSet.getString("destination");
-                LocalDateTime dateTime = resultSet.getTimestamp(3).toLocalDateTime();
+                LocalDateTime dateTime = resultSet.getTimestamp(4).toLocalDateTime();
                 Double price = resultSet.getDouble("price");
                 int numberPeople = resultSet.getInt("number_people");
                 int userId = resultSet.getInt("user_id");

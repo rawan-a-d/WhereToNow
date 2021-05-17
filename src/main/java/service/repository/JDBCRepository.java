@@ -30,7 +30,6 @@ public class JDBCRepository {
             connection = DriverManager.getConnection(url, username, pass);
 
             connection.setAutoCommit(false);
-
         }
         catch (SQLException ex) {
             throw new IllegalStateException("JDBC driver failed to connect to the database " + url + " " + username + " " + pass + ".", ex);

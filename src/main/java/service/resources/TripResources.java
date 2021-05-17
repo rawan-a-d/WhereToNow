@@ -16,10 +16,14 @@ public class TripResources {
     private final TripController tripController = new TripController();
 
     @GET
-    @Path("{id}")
+    @Path("/{id}") // http://localhost:9090/WhereToNow/trips/1
     @Produces(MediaType.APPLICATION_JSON)
     public Response getTrip(@PathParam("id") int id) {
+        System.out.println("GetTRIP******");
+        System.out.println("ID " + id);
         Trip trip = tripController.getTrip(id);
+
+        System.out.println("TRIP " + trip);
 
         if(trip != null) {
             return Response.ok(trip).build();
@@ -30,7 +34,7 @@ public class TripResources {
     }
 
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON) // http://localhost:9090/WhereToNow/trips?from=Babtuma&to=Baramkeh
     public Response getTrips(@QueryParam("from") String from, @QueryParam("to") String to) {
         List<Trip> trips = tripController.getTrips(from, to);
 

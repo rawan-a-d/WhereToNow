@@ -15,7 +15,9 @@ public class TripController {
     public Trip getTrip(int id) {
         Trip trip = null;
         try {
+            System.out.println("getTrip Controller");
             trip = tripRepository.getTrip(id);
+            System.out.println("TRIP controller "+ trip);
         }
         catch (WhereToNowDatabaseException ex) {
             LOGGER.info(ex.getMessage());
