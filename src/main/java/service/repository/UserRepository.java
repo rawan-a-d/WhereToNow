@@ -30,8 +30,9 @@ public class UserRepository extends JDBCRepository{
                 String password = resultSet.getString("password");
                 String image =  resultSet.getString("image");
                 String id_image = resultSet.getString("id_image");
+                String number = resultSet.getString("number");
 
-                User user = new User(id,name,email, password, image,id_image);
+                User user = new User(id,name,email, password, image,id_image, number);
                 users.add(user);
             }
 
@@ -64,10 +65,11 @@ public class UserRepository extends JDBCRepository{
                 String password = resultSet.getString("password");
                 String image =  resultSet.getString("image");
                 String id_image = resultSet.getString("id_image");
+                String number = resultSet.getString("number");
 
                 connection.close();
 
-                return new User(0,name,email, password, image,id_image);
+                return new User(0,name,email, password, image,id_image, number);
             }
         } catch (SQLException throwable) {
             throw new WhereToNowDatabaseException("Cannot read user from the database.",throwable);

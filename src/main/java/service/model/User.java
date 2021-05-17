@@ -11,15 +11,17 @@ public class User {
     private String password; // user's password
     private String image; // user's personal image
     private String id_image; // user's Id image
+    private String number;
 
     //constracture
-    public User(int id, String name, String email, String password, String image, String id_image) {
+    public User(int id, String name, String email, String password, String image, String id_image, String number) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
         this.image = image;
         this.id_image = id_image;
+        this.number = number;
     }
 
     //getters and setters
@@ -71,13 +73,21 @@ public class User {
         this.id_image = id_image;
     }
 
-    //methods
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
         return id == user.id &&
+                number == user.number &&
                 Objects.equals(name, user.name) &&
                 Objects.equals(email, user.email) &&
                 Objects.equals(password, user.password) &&
@@ -87,7 +97,7 @@ public class User {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, email, password, image, id_image);
+        return Objects.hash(id, name, email, password, image, id_image, number);
     }
 
     @Override
@@ -99,6 +109,7 @@ public class User {
                 ", password='" + password + '\'' +
                 ", image='" + image + '\'' +
                 ", id_image='" + id_image + '\'' +
+                ", number=" + number +
                 '}';
     }
 }

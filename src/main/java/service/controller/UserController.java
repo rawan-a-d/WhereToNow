@@ -2,7 +2,6 @@ package service.controller;
 
 import service.model.User;
 import service.model.dto.GuardianDTO;
-import service.model.dto.UserDTO;
 import service.repository.UserRepository;
 import service.repository.WhereToNowDatabaseException;
 
