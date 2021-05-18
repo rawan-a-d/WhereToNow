@@ -1,7 +1,7 @@
 package service.repository;
 
 import service.model.User;
-import service.model.dto.GuardianDTO;
+import service.model.Guardian;
 import service.model.dto.UserDTO;
 
 import java.net.URISyntaxException;
@@ -80,9 +80,9 @@ public class UserRepository extends JDBCRepository{
     }
 
     // get user's guardians
-    public List<GuardianDTO> getAllGuardianDTO(int id) throws WhereToNowDatabaseException, URISyntaxException {
+    public List<Guardian> getAllGuardianDTO(int id) throws WhereToNowDatabaseException, URISyntaxException {
 
-        List<GuardianDTO> allGuardiansDTO = new ArrayList<>();
+        List<Guardian> allGuardiansDTO = new ArrayList<>();
 
         Connection connection = this.getDataBaseConneection();
 
@@ -106,7 +106,7 @@ public class UserRepository extends JDBCRepository{
 
                 UserDTO guardian = new UserDTO( guardianName, guardianImage);
 
-                GuardianDTO myGuardian = new GuardianDTO(guardian);
+                Guardian myGuardian = new Guardian(guardian);
 
                 allGuardiansDTO.add(myGuardian);
             }

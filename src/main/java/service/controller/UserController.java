@@ -1,7 +1,7 @@
 package service.controller;
 
 import service.model.User;
-import service.model.dto.GuardianDTO;
+import service.model.Guardian;
 import service.repository.UserRepository;
 import service.repository.WhereToNowDatabaseException;
 
@@ -36,8 +36,8 @@ public class UserController {
      * @param id
      * @return List of all gardians
      */
-    public List<GuardianDTO> getAllGuardians(int id) {
-        List<GuardianDTO> allGuardians;
+    public List<Guardian> getAllGuardians(int id) {
+        List<Guardian> allGuardians;
         try {
             allGuardians = userRepository.getAllGuardianDTO(id);
             System.out.println("Get user's guardian'" + allGuardians);

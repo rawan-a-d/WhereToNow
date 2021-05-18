@@ -1,8 +1,10 @@
-package service.model.dto;
+package service.model;
+
+import service.model.dto.UserDTO;
 
 import java.util.Objects;
 
-public class GuardianDTO {
+public class Guardian {
 
     //fields
     private int id;
@@ -10,17 +12,17 @@ public class GuardianDTO {
     private UserDTO guardian_id; // guardian
 
     //constarcture
-    public GuardianDTO(int id, UserDTO user_id, UserDTO guardian_id) {
+    public Guardian(int id, UserDTO user_id, UserDTO guardian_id) {
         this.id = id;
         this.user_id = user_id;
         this.guardian_id = guardian_id;
     }
 
-    public GuardianDTO(UserDTO guardian_id) {
+    public Guardian(UserDTO guardian_id) {
         this.guardian_id = guardian_id;
     }
 
-    public GuardianDTO() {
+    public Guardian() {
     }
 
     //getters and setters
@@ -53,7 +55,7 @@ public class GuardianDTO {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        GuardianDTO that = (GuardianDTO) o;
+        Guardian that = (Guardian) o;
         return id == that.id &&
                 Objects.equals(user_id, that.user_id) &&
                 Objects.equals(guardian_id, that.guardian_id);

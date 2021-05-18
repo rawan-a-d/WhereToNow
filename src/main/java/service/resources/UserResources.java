@@ -2,11 +2,9 @@ package service.resources;
 
 import service.controller.UserController;
 import service.model.User;
-import service.model.dto.GuardianDTO;
-import service.repository.UserRepository;
+import service.model.Guardian;
 import service.repository.WhereToNowDatabaseException;
 
-import javax.annotation.security.PermitAll;
 import javax.ws.rs.*;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
@@ -32,11 +30,11 @@ public class UserResources {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getGuardians(@PathParam("id") int id) {
 
-        List<GuardianDTO> allGuardians;
+        List<Guardian> allGuardians;
         
         allGuardians = userController.getAllGuardians(id);
 
-        GenericEntity<List<GuardianDTO>> entity = new GenericEntity<>(allGuardians) {  };
+        GenericEntity<List<Guardian>> entity = new GenericEntity<>(allGuardians) {  };
         return Response.ok(entity).build();
     }
 
