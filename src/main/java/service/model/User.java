@@ -13,7 +13,7 @@ public class User {
     private String id_image; // user's Id image
     private String number;
 
-    //constracture
+    //constructors
     public User(int id, String name, String email, String password, String image, String id_image, String number) {
         this.id = id;
         this.name = name;
@@ -22,6 +22,12 @@ public class User {
         this.image = image;
         this.id_image = id_image;
         this.number = number;
+    }
+
+    public User(int id, String name, String image) {
+        this.id = id;
+        this.name = name;
+        this.image = image;
     }
 
     //getters and setters
@@ -55,14 +61,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
     }
 
     public String getId_image() {
