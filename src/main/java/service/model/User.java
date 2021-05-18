@@ -63,6 +63,14 @@ public class User {
         this.password = password;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public String getId_image() {
         return id_image;
     }
