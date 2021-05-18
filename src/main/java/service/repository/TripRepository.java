@@ -3,6 +3,7 @@ package service.repository;
 import service.model.Trip;
 import service.model.User;
 
+import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -59,7 +60,7 @@ public class TripRepository {
             }
 
         }
-        catch (SQLException throwable) {
+        catch (SQLException | URISyntaxException throwable) {
             throw new WhereToNowDatabaseException("Cannot read trip from the database", throwable);
         }
     }
@@ -106,7 +107,7 @@ public class TripRepository {
             connection.commit();
 
 
-        } catch (SQLException throwable) {
+        } catch (SQLException | URISyntaxException throwable) {
             throw new WhereToNowDatabaseException("Cannot read trips from the database.", throwable);
         }
 

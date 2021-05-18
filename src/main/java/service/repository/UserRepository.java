@@ -16,7 +16,7 @@ public class UserRepository extends JDBCRepository{
 
         List<User> users = new ArrayList<>();
 
-        Connection connection = this.getDataBaseConneection();
+        Connection connection = this.getDatabaseConnection();
 
         String sql = "SELECT * FROM user WHERE 1";
 
@@ -49,7 +49,7 @@ public class UserRepository extends JDBCRepository{
     // get user by his id
     public User getUserById(int id) throws WhereToNowDatabaseException, SQLException, URISyntaxException {
 
-        Connection connection = this.getDataBaseConneection();
+        Connection connection = this.getDatabaseConnection();
 
         String sql = "SELECT * FROM user WHERE id = ?";
 
@@ -84,7 +84,7 @@ public class UserRepository extends JDBCRepository{
 
         List<Guardian> allGuardiansDTO = new ArrayList<>();
 
-        Connection connection = this.getDataBaseConneection();
+        Connection connection = this.getDatabaseConnection();
 
         String sql = "SELECT guardian.name AS GuardianName, guardian.image " +
                 "AS GuardianImage FROM user_guardian " +

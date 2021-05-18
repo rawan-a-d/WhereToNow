@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class JDBCRepository {
-    public Connection getDataBaseConneection () throws URISyntaxException{
+    public Connection getDatabaseConnection () throws URISyntaxException{
 
         String url = "";
         String username = "";
