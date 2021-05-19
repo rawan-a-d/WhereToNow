@@ -9,10 +9,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
-import java.util.logging.Logger;
 
 public class JDBCRepository {
-    public Connection getDataBaseConneection () throws URISyntaxException{
+    public Connection getDatabaseConnection () throws URISyntaxException{
 
         String url = "";
         String username = "";
@@ -27,15 +26,9 @@ public class JDBCRepository {
             username = properties.getProperty("username");
             pass = properties.getProperty("pass");
 
-            System.out.println(url);
-            System.out.println(username);
-            System.out.println(pass);
-
-
             connection = DriverManager.getConnection(url, username, pass);
             connection.setAutoCommit(false);
 
-            System.out.println(connection);
 
         } catch (SQLException | FileNotFoundException e) {
             throw new IllegalStateException("Driver failed " + url + ".", e);

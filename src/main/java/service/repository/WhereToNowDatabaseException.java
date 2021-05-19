@@ -1,7 +1,6 @@
 package service.repository;
 
-public class WhereToNowDatabaseException extends Exception{
-
+public class WhereToNowDatabaseException extends Exception {
     public WhereToNowDatabaseException(String message) {
         super(message);
     }
