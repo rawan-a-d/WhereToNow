@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class User {
 
-    //fields
+    // fields
     private int id;
     private String name; // user's name
     private String email; // user's email
@@ -14,7 +14,7 @@ public class User {
     private String number;
     private String safe_word;
 
-    //constructors
+    // constructors
     public User(int id, String name, String email, String password, String image, String id_image, String number, String safe_word) {
         this.id = id;
         this.name = name;

@@ -6,12 +6,12 @@ import java.util.Objects;
 
 public class Guardian {
 
-    //fields
+    // fields
     private int id;
     private UserDTO user_id; // user
     private UserDTO guardian_id; // guardian
 
-    //constarcture
+    // constructors
     public Guardian(int id, UserDTO user_id, UserDTO guardian_id) {
         this.id = id;
         this.user_id = user_id;
@@ -25,7 +25,7 @@ public class Guardian {
     public Guardian() {
     }
 
-    //getters and setters
+    // getters and setters
     public int getId() {
         return id;
     }

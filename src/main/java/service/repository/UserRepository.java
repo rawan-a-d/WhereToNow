@@ -36,25 +36,19 @@ public class UserRepository extends JDBCRepository{
                 User user = new User(id,name,email, password, image,id_image, number, safe_word);
                 users.add(user);
             }
-
-            connection.close();
-
         } catch (SQLException throwable) {
             throw new WhereToNowDatabaseException("Cannot read users from the database.",throwable);
-        }finally {
-            connection.close();
         }
+
         return users;
     }
 
     // get user by his id
     public User getUserById(int id) throws WhereToNowDatabaseException, SQLException, URISyntaxException {
-
-        Connection connection = this.getDatabaseConnection();
-
         String sql = "SELECT * FROM user WHERE id = ?";
 
-        try (PreparedStatement statement = connection.prepareStatement(sql)){
+        try (Connection connection = this.getDatabaseConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)){
             statement.setInt(1, id); // set id parameter
             ResultSet resultSet = statement.executeQuery();
             if (!resultSet.next()){
@@ -69,24 +63,17 @@ public class UserRepository extends JDBCRepository{
                 String number = resultSet.getString("number");
                 String safe_word = resultSet.getString("safe_word");
 
-                connection.close();
-
                 return new User(id,name,email, password, image,id_image, number, safe_word);
             }
         } catch (SQLException throwable) {
             throw new WhereToNowDatabaseException("Cannot read user from the database.",throwable);
-        }finally {
-            connection.close();
         }
-
     }
 
     // get user's guardians
     public List<Guardian> getAllGuardianDTO(int id) throws WhereToNowDatabaseException, URISyntaxException {
 
         List<Guardian> allGuardiansDTO = new ArrayList<>();
-
-        Connection connection = this.getDatabaseConnection();
 
         String sql = "SELECT guardian.name AS GuardianName, guardian.image " +
                 "AS GuardianImage FROM user_guardian " +
@@ -95,10 +82,9 @@ public class UserRepository extends JDBCRepository{
                 "LEFT JOIN user AS guardian ON (user_guardian.guardian_id = guardian.id) " +
                 "WHERE (userr.id = ?)";
 
-        try {
-            PreparedStatement statement = connection.prepareStatement(sql);
+        try(Connection connection = this.getDatabaseConnection();
+            PreparedStatement statement = connection.prepareStatement(sql);) {
             statement.setInt(1, id);
-            System.out.println("HI" + id);
 
             ResultSet resultSet = statement.executeQuery();
 
@@ -112,13 +98,11 @@ public class UserRepository extends JDBCRepository{
 
                 allGuardiansDTO.add(myGuardian);
             }
-
-            statement.close();
-            connection.close();
         }
         catch (SQLException throwable) {
             throw new WhereToNowDatabaseException("Cannot read guardians from the database.", throwable);
         }
+
         return allGuardiansDTO;
     }
 

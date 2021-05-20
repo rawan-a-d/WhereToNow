@@ -28,8 +28,6 @@ public class JDBCRepository {
 
             connection = DriverManager.getConnection(url, username, pass);
             connection.setAutoCommit(false);
-
-
         } catch (SQLException | FileNotFoundException e) {
             throw new IllegalStateException("Driver failed " + url + ".", e);
         } catch (IOException e) {

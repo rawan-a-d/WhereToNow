@@ -3,13 +3,12 @@ package service.model.dto;
 import java.util.Objects;
 
 public class UserDTO {
-
-    //fields
+    // fields
     private int id; //user's id
     private String name; //user's name
     private String image; //user's image
 
-    //constracture
+    // constructors
     public UserDTO(int id, String name, String image) {
         this.id = id;
         this.name = name;
@@ -24,7 +23,7 @@ public class UserDTO {
     public UserDTO() {
     }
 
-    //getters and setters
+    // getters and setters
     public int getId() {
         return id;
     }

@@ -19,11 +19,7 @@ public class TripResources {
     @Path("/{id}") // http://localhost:9090/WhereToNow/trips/1
     @Produces(MediaType.APPLICATION_JSON)
     public Response getTrip(@PathParam("id") int id) {
-        System.out.println("GetTRIP******");
-        System.out.println("ID " + id);
         Trip trip = tripController.getTrip(id);
-
-        System.out.println("TRIP " + trip);
 
         if(trip != null) {
             return Response.ok(trip).build();

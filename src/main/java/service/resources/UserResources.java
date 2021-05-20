@@ -15,7 +15,6 @@ import java.util.List;
 
 @Path("users")
 public class UserResources {
-
     UserController userController = new UserController();
 
     @GET //GET at http://localhost:9090/WhereToNow/users/test
@@ -29,10 +28,7 @@ public class UserResources {
     @Path("{id}/guardians")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getGuardians(@PathParam("id") int id) {
-
-        List<Guardian> allGuardians;
-        
-        allGuardians = userController.getAllGuardians(id);
+        List<Guardian> allGuardians = userController.getAllGuardians(id);
 
         GenericEntity<List<Guardian>> entity = new GenericEntity<>(allGuardians) {  };
         return Response.ok(entity).build();
@@ -42,7 +38,6 @@ public class UserResources {
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getUserByID(@PathParam("id") int id) {
-
         User user = userController.getUser(id);
 
         return Response.ok(user).build();

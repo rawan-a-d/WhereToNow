@@ -2,6 +2,7 @@ package service.repository;
 
 import service.model.Trip;
 import service.model.User;
+import service.model.dto.UserDTO;
 
 import java.net.URISyntaxException;
 import java.sql.Connection;
@@ -53,7 +54,7 @@ public class TripRepository {
                 String userName = resultSet.getString("user_name");
                 String userImage = resultSet.getString("user_image");
 
-                User user = new User(userId, userName, userImage);
+                UserDTO user = new UserDTO(userId, userName, userImage);
                 trip = new Trip(tripId, location, destination, dateTime, price, numberPeople, user);
 
                 return trip;
@@ -99,14 +100,12 @@ public class TripRepository {
                 String userName = resultSet.getString("user_name");
                 String userImage = resultSet.getString("user_image");
 
-                User user = new User(userId, userName, userImage);
+                UserDTO user = new UserDTO(userId, userName, userImage);
                 Trip trip = new Trip(tripId, location, destination, dateTime, price, numberPeople, user);
                 trips.add(trip);
             }
 
             connection.commit();
-
-
         } catch (SQLException | URISyntaxException throwable) {
             throw new WhereToNowDatabaseException("Cannot read trips from the database.", throwable);
         }
