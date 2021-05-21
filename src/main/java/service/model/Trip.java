@@ -11,16 +11,16 @@ public class Trip {
     private LocalDateTime dateTime;
     private Double price;
     private int numberPeople;
-    private UserDTO user;
+    private UserDTO userDTO;
 
-    public Trip(int id, String location, String destination, LocalDateTime dateTime, Double price, int number_people, UserDTO user) {
+    public Trip(int id, String location, String destination, LocalDateTime dateTime, Double price, int numberPeople, UserDTO userDTO) {
         this.id = id;
         this.location = location;
         this.destination = destination;
         this.dateTime = dateTime;
         this.price = price;
         this.numberPeople = numberPeople;
-        this.user = user;
+        this.userDTO = userDTO;
     }
 
 
@@ -72,11 +72,11 @@ public class Trip {
         this.numberPeople = numberPeople;
     }
 
-    public UserDTO getUser() {
-        return user;
+    public UserDTO getUserDTO() {
+        return userDTO;
     }
 
-    public void setUser(UserDTO user) {
-        this.user = user;
+    public void setUserDTO(UserDTO userDTO) {
+        this.userDTO = userDTO;
     }
 }
