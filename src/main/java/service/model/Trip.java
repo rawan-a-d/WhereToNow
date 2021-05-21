@@ -1,8 +1,9 @@
 package service.model;
 
+import service.model.dto.UserDTO;
+
 import java.time.LocalDateTime;
 
-// trip (id, location, destination, date_time, price, number_people, user_id)
 public class Trip {
     private int id;
     private String location;
@@ -10,9 +11,9 @@ public class Trip {
     private LocalDateTime dateTime;
     private Double price;
     private int numberPeople;
-    private User user;
+    private UserDTO user;
 
-    public Trip(int id, String location, String destination, LocalDateTime dateTime, Double price, int number_people, User user) {
+    public Trip(int id, String location, String destination, LocalDateTime dateTime, Double price, int number_people, UserDTO user) {
         this.id = id;
         this.location = location;
         this.destination = destination;
@@ -71,11 +72,11 @@ public class Trip {
         this.numberPeople = numberPeople;
     }
 
-    public User getUser() {
+    public UserDTO getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserDTO user) {
         this.user = user;
     }
 }

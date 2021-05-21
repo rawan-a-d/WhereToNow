@@ -12,12 +12,15 @@ public class TripController {
 
     TripRepository tripRepository = new TripRepository();
 
+    /**
+     *
+     * @param id
+     * @return trip with given id
+     */
     public Trip getTrip(int id) {
         Trip trip = null;
         try {
-            System.out.println("getTrip Controller");
             trip = tripRepository.getTrip(id);
-            System.out.println("TRIP controller "+ trip);
         }
         catch (WhereToNowDatabaseException ex) {
             LOGGER.info(ex.getMessage());
@@ -25,6 +28,12 @@ public class TripController {
         return trip;
     }
 
+    /**
+     *
+     * @param from
+     * @param to
+     * @return trips with given from and to
+     */
     public List<Trip> getTrips(String from, String to) {
         List<Trip> trips = null;
         try {
