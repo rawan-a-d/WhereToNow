@@ -1,1 +1,1 @@
-web: java -jar src/main/java/service/jar/WhereToNow.jar
+web: java -jar jar/WhereToNow.jar

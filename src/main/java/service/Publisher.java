@@ -19,7 +19,7 @@ class Publisher {
 
     // https://stackoverflow.com/questions/57825797/how-to-deploy-a-jersey-rest-server-to-heroku
 
-    static String defaultPort = "9090";
+    static String defaultPort = "9091";
 
     final static String port = System.getenv("PORT") != null ? System.getenv("PORT"): defaultPort;
 
