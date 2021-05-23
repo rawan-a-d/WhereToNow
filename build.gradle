@@ -2,7 +2,6 @@ plugins {
     id 'java'
     id'com.github.johnrengelman.shadow'version'6.1.0'
     id "com.heroku.sdk.heroku-gradle" version "2.0.0"
-
 }
 
 group 'org.example'
@@ -48,10 +47,12 @@ dependencies {
     implementation 'mysql:mysql-connector-java:5.1.23'
     runtimeOnly 'mysql:mysql-connector-java:5.1.23'
 
+    compile 'com.github.jsimone:webapp-runner:8.5.11.3'
+
+
 }
 
-task stage(dependsOn: ['build', 'clean'])
-build.mustRunAfter clean
+
 
 
 // task to create Jar file with the name with all dependencies
@@ -63,3 +64,21 @@ shadowJar {
         attributes 'Main-Class': 'service.Publisher'
     }
 }
+
+
+//task stage(dependsOn: ['build', 'clean'])
+//build.mustRunAfter clean
+
+task stage() {
+    dependsOn clean, build
+}
+build.mustRunAfter clean
+
+task copyToLib(type: Copy) {
+    into "$buildDir/server"
+    from(configurations.compile) {
+        include "webapp-runner*"
+    }
+}
+
+stage.dependsOn(copyToLib)

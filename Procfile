@@ -1,1 +1,1 @@
-web: java -jar WhereToNow.jar --port $PORT target/*.war
+web: java -jar build/libs/WhereToNow-1.0-SNAPSHOT-all.jar build/libs/*.war
