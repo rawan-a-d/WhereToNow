@@ -1,2 +1,1 @@
-web: java -jar src/main/java/service/jar/WhereToNow-1.0-SNAPSHOT-all.jar
-heroku ps:scale web=1
+web: java $JAVA_OPTS -Dserver.port=$PORT -cp target/classes:target/dependency/* com.WhereToNow.Main

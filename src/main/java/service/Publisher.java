@@ -17,6 +17,7 @@ class Publisher {
     //private static final URI BASE_URI = URI.create("http://0.0.0.0:9090/WhereToNow/");
     //private static final URI BASE_URI = URI.create("https://where-to-now.herokuapp.com/");
 
+    // https://stackoverflow.com/questions/57825797/how-to-deploy-a-jersey-rest-server-to-heroku
     final static String port = System.getenv("PORT");
     final static URI BASE_URI = URI.create("http://0.0.0.0:" + port);
 
