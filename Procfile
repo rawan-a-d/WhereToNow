@@ -1,1 +1,1 @@
-web: java -jar WhereToNow.jar *.war
+web: java -jar WhereToNow.jar WhereToNow.war
