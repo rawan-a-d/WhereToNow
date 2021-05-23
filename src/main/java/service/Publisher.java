@@ -23,7 +23,6 @@ class Publisher {
 
     final static String port = System.getenv("PORT") != null ? System.getenv("PORT"): defaultPort;
 
-
     final static URI BASE_URI = URI.create("http://0.0.0.0:" + port);
 
     public static void main(String[] args) throws IOException {
