@@ -15,7 +15,10 @@ class Publisher {
 
     //private static final URI BASE_URI = URI.create("http://localhost:9090/WhereToNow/");
     //private static final URI BASE_URI = URI.create("http://0.0.0.0:9090/WhereToNow/");
-    private static final URI BASE_URI = URI.create("https://where-to-now.herokuapp.com/");
+    //private static final URI BASE_URI = URI.create("https://where-to-now.herokuapp.com/");
+
+    final static String port = System.getenv("PORT");
+    final static URI BASE_URI = URI.create("http://0.0.0.0:" + port);
 
     public static void main(String[] args) throws IOException {
 
