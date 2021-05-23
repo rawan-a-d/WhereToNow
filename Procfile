@@ -1,1 +1,1 @@
-web: java -jar jar/WhereToNow.jar
+web: java -Dserver.port=$PORT -jar target/WhereToNow.jar
