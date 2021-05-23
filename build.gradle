@@ -46,3 +46,6 @@ dependencies {
     runtime 'mysql:mysql-connector-java:5.1.23'
 
 }
+
+task stage(dependsOn: ['build', 'clean'])
+build.mustRunAfter clean
