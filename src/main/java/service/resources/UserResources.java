@@ -18,7 +18,6 @@ public class UserResources {
     UserController userController = new UserController();
 
     @GET //GET at http://localhost:9090/WhereToNow/users/test
-    @Path("")
     public Response testing() throws URISyntaxException, WhereToNowDatabaseException, SQLException {
         List<User> users = userController.getAllUsers();
         return Response.ok(users).build();
