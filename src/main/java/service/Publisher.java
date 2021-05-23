@@ -18,12 +18,18 @@ class Publisher {
     //private static final URI BASE_URI = URI.create("https://where-to-now.herokuapp.com/");
 
     // https://stackoverflow.com/questions/57825797/how-to-deploy-a-jersey-rest-server-to-heroku
-    final static String port = System.getenv("PORT");
+
+    static String defaultPort = "9090";
+
+    final static String port = System.getenv("PORT") != null ? System.getenv("PORT"): defaultPort;
+
+
     final static URI BASE_URI = URI.create("http://0.0.0.0:" + port);
 
     public static void main(String[] args) throws IOException {
 
         try {
+            System.out.println("PORT ********* " + BASE_URI);
             service.CustomApplicationConfig customApplicationConfig = new service.CustomApplicationConfig();
             // create and start a grizzly server
             HttpServer server = GrizzlyHttpServerFactory.createHttpServer(BASE_URI, customApplicationConfig, true);
