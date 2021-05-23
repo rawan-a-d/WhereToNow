@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 public class CustomApplicationConfig extends ResourceConfig
 {
-    //constracture
+    // constructor
     public CustomApplicationConfig()
     {
         packages("service.resources");

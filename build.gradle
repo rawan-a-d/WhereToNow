@@ -30,7 +30,8 @@ dependencies {
 //    // https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime
     implementation group: 'org.glassfish.jaxb', name: 'jaxb-runtime', version: '2.+'
 
-//    // Grizzly will host the service
+
+    // Grizzly will host the service
     implementation group: 'org.glassfish.jersey.containers', name: 'jersey-container-grizzly2-http', version: '2.+'
 
 //    // Logging
