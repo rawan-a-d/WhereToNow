@@ -30,7 +30,7 @@ public class UserResources {
     public Response getGuardians(@PathParam("id") int id) {
         List<Guardian> allGuardians = userController.getAllGuardians(id);
 
-        GenericEntity<List<Guardian>> entity = new GenericEntity<>(allGuardians) {  };
+        GenericEntity<List<Guardian>> entity = new GenericEntity<List<Guardian>>(allGuardians) {  };
         return Response.ok(entity).build();
     }
 
