@@ -1,1 +1,1 @@
-heroku ps:scale web=1
+web: java -jar src/main/java/service/jar/WhereToNow-1.0-SNAPSHOT.jar
