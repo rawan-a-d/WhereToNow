@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar WhereToNow.jar --port $PORT target/*.war
+web: java -jar WhereToNow.jar --port $PORT target/*.war
