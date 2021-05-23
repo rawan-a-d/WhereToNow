@@ -13,8 +13,9 @@ import java.util.logging.Logger;
  */
 class Publisher {
 
-    private static final URI BASE_URI = URI.create("http://localhost:9090/WhereToNow/");
+    //private static final URI BASE_URI = URI.create("http://localhost:9090/WhereToNow/");
     //private static final URI BASE_URI = URI.create("http://0.0.0.0:9090/WhereToNow/");
+    private static final URI BASE_URI = URI.create("https://where-to-now.herokuapp.com/");
 
     public static void main(String[] args) throws IOException {
 
